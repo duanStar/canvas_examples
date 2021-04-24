@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本</title>
+    <style>
+        body{margin: 0;overflow: hidden}
+        #canvas{background: antiquewhite;}
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    const canvas=document.getElementById('canvas');
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    const ctx=canvas.getContext('2d');
+
+    ctx.font='bold 200px Arial';
+
+    // //投影
+    // ctx.shadowColor='rgba(0,0,0,0.6)';
+    // ctx.shadowOffsetY=2;
+    // ctx.shadowBlur=4;
+    //
+    // //实体文字
+    // ctx.fillStyle='#a76921';
+    // ctx.fillText('canvas',50,150);
+    //
+    // //实体描边文字
+    // ctx.strokeStyle='#f0d5ac';
+    // ctx.lineWidth=9;
+    // ctx.strokeText('canvas',50,150);
+    //
+    // //虚线描边
+    // ctx.strokeStyle='#333';
+    // ctx.lineWidth=1;
+    // ctx.setLineDash([5,3]);
+    // ctx.strokeText('canvas',50,150);
+
+    ctx.shadowColor='rgba(0,0,0,.6)';
+    ctx.shadowBlur=4;
+    ctx.shadowOffsetY=2;
+
+    ctx.fillStyle='#a76921';
+    ctx.fillText('canvas',50,150);
+
+    ctx.strokeStyle='#f0d5ac';
+    ctx.lineWidth=9;
+    ctx.strokeText('canvas',50,150);
+
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([5,3]);
+    ctx.strokeText('canvas',50,150);
+
+
+
+</script>
+</body>
+</html>

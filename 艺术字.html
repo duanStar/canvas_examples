@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+</body>
+<script>
+    let canvas = document.querySelector('#canvas');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let ctx = canvas.getContext('2d');
+
+    let colors = ['red', 'yellow'];
+    let states = [0, 1];
+    let lineDashOffest = [0,6];
+
+    function draw() {
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(100, 200);
+        ctx.strokeStyle = colors[states[0]];
+        ctx.font = 'bold 200px arial';
+        ctx.lineWidth = 3;
+        ctx.setLineDash([6]);
+        ctx.lineDashOffset = lineDashOffest[states[0]];
+        ctx.shadowColor = 'orange';
+        ctx.shadowOffsetY = 4;
+        for (let i = 8; i >=0; i--) {
+            ctx.shadowBlur = i;
+            ctx.strokeText('夜上海', 100, 200);
+        }
+        ctx.restore();
+    }
+
+    setInterval(() => {
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+        draw();
+        states.reverse();
+    }, 500);
+</script>
+</html>
